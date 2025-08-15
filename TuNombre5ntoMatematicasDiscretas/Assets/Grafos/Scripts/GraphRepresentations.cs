@@ -7,12 +7,12 @@ public class GraphRepresentations : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] GameObject nodo;
     [SerializeField] GameObject arista;
+
+    [Header("Lista")]
     List<string> nodeList = new List<string>();
-
-
-
     List<(string, string)> connectionList = new List<(string, string)>();
 
+    [Header("Diccionario")]
     Dictionary<string, List<string>> adjList = new Dictionary<string, List<string>>();
 
     int[,] adjMatrix = new int[8, 8];
