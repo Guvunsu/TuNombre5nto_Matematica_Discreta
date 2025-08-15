@@ -18,6 +18,8 @@ public class GraphRepresentations : MonoBehaviour
     int[,] adjMatrix = new int[8, 8];
     void Start()
     {
+    //hacer esto que se instancie en la escena de unity 
+    
         // Lista Adyacente "One Hit"
         connectionList = new List<(string, string)> { ("A","C"), ("A","D"),("A","B"), ("A","E"),
                                                   ("F","G"),("F","H"),("F","E"),
@@ -39,7 +41,6 @@ public class GraphRepresentations : MonoBehaviour
         adjList.Add("G", new List<string> { "B", "F" });
         adjList.Add("H", new List<string> { "F" });
     }
-    //hacer esto que se instancie en la escena de unity 
 
     void Update()
     {
