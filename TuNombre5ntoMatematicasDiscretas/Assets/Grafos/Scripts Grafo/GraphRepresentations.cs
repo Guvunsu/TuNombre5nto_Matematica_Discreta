@@ -20,6 +20,7 @@ public class GraphRepresentations : MonoBehaviour {
     #region PublicMethods
     void Start() {
         CrearGrafo();
+        ImprimirGrafo();
     }
     #endregion PublicMethods
 
@@ -96,7 +97,7 @@ public class GraphRepresentations : MonoBehaviour {
             // se instancia el objeto y la configuracion del lr
             GameObject edgeObj = Instantiate(arista);
             LineRenderer lr = edgeObj.GetComponent<LineRenderer>();
-            //grosores
+            //grosores de inicio y fin
             lr.startWidth = 0.05f;
             lr.endWidth = 0.05f;
             //puntos en el plano 
@@ -105,6 +106,18 @@ public class GraphRepresentations : MonoBehaviour {
         }
     }
     #endregion CrearArista
+
+    #region ImprimirGrafo
+    public void ImprimirGrafo() {
+        //Diccionario adjList lo imprime
+        foreach (var nodo in adjList) {
+            string vecinos = string.Join(", ", nodo.Value);
+            Debug.Log($"Nodo: {nodo.Key} -> Vecinos: {vecinos}");
+        }
+    }
+
+
+    #endregion ImprimirGrafo
 
     #endregion Grafo
 }
