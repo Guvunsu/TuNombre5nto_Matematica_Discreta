@@ -8,7 +8,7 @@ public class BreathFirstSearchGrafo : MonoBehaviour
     Dictionary<string, List<string>> breathFirstSearchGraph = new Dictionary<string, List<string>>();
     List<string> cameFrom = new List<string>();
     Queue<string> queue = new Queue<string>();
-    string startNodes = "A"; 
+    string startNodes = "A";
 
     [Header("Prefabs y Referencias")]
     public GameObject nodePrefab;
@@ -56,7 +56,8 @@ public class BreathFirstSearchGrafo : MonoBehaviour
                 GameObject newNode = Instantiate(nodePrefab, pos, Quaternion.identity);
                 newNode.name = "Node " + node;
                 nodeObjects[node] = newNode;
-            } else
+            }
+            else
             {
                 Debug.LogWarning($"No se definió posición para el nodo {node}, se colocará en (0,0,0).");
                 nodeObjects[node] = Instantiate(nodePrefab, Vector3.zero, Quaternion.identity);
@@ -78,6 +79,7 @@ public class BreathFirstSearchGrafo : MonoBehaviour
 
             foreach (string neighbor in breathFirstSearchGraph[currentNode])
             {
+                Debug.Log("$ Registro " + currentNode);
                 if (!cameFrom.Contains(neighbor))
                 {
                     queue.Enqueue(neighbor);
@@ -92,5 +94,7 @@ public class BreathFirstSearchGrafo : MonoBehaviour
                 }
             }
         }
+        string recorrido = string.Join(" -> ", cameFrom);
+        Debug.Log("Recorrido completo BFS: " + recorrido);
     }
 }

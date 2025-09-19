@@ -74,7 +74,8 @@ public class DijkstraGraphVisualizer : MonoBehaviour
                 newNode.name = "Node " + node;
                 newNode.GetComponent<Renderer>().material.color = Color.white;
                 nodeObjects[node] = newNode;
-            } else
+            }
+            else
             {
                 Debug.LogWarning($"No se definió posición para el nodo {node}, se colocará en (0,0,0).");
                 GameObject newNode = Instantiate(nodePrefab, Vector3.zero, Quaternion.identity);
@@ -142,6 +143,8 @@ public class DijkstraGraphVisualizer : MonoBehaviour
                 }
             }
         }
+        string recorrido = string.Join(" -> ", cameFrom);
+        Debug.Log("Ruta completa Djistra: " + recorrido);
     }
 
     void DrawPath()
