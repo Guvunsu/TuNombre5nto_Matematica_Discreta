@@ -7,7 +7,7 @@ public class HillCipher : MonoBehaviour
     [SerializeField] MatrixRow[] MatrixRow;
     int[,] MatrixColumn;
 
-    private string alphabet = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; // 27 letras
+    private string alphabet = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; 
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class HillCipher : MonoBehaviour
         input = input.ToUpper().Replace(" ", "");
 
         int size = MatrixColumn.GetLength(0);
-        int mod = alphabet.Length; // 27
+        int mod = alphabet.Length; 
 
         while (input.Length % size != 0)
             input += "X";
@@ -39,7 +39,7 @@ public class HillCipher : MonoBehaviour
             int[] block = new int[size];
 
             for (int j = 0; j < size; j++)
-                block[j] = alphabet.IndexOf(input[i + j]); // soporte Ñ
+                block[j] = alphabet.IndexOf(input[i + j]);
 
             int[] result = new int[size];
 
@@ -49,7 +49,7 @@ public class HillCipher : MonoBehaviour
                 for (int col = 0; col < size; col++)
                     sum += MatrixColumn[row, col] * block[col];
 
-                result[row] = ((sum % mod) + mod) % mod; // módulo seguro
+                result[row] = ((sum % mod) + mod) % mod;
             }
 
             for (int j = 0; j < size; j++)
