@@ -1,0 +1,68 @@
+using UnityEngine;
+using System.Collections;
+
+public class TestCode : MonoBehaviour
+{
+    public Node startNode { get; set; }
+    public Node goalNode { get; set; }
+    public ArrayList pathArray;
+    public float intervalTime = 1f;
+
+    private GameObject objStartCube, objEndCube;
+    private float elapsedTime = 0f;
+    private Transform startPos, endPos;
+
+    void Start()
+    {
+        objStartCube = GameObject.FindGameObjectWithTag("Start");
+        objEndCube = GameObject.FindGameObjectWithTag("End");
+
+        pathArray = new ArrayList();
+        FindPath();
+    }
+
+    void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime >= intervalTime)
+        {
+            elapsedTime = 0f;
+            FindPath();
+        }
+    }
+
+    void FindPath()
+    {
+        startPos = objStartCube.transform;
+        endPos = objEndCube.transform;
+
+        startNode = new Node(GridManager.instance.GetGridCellCenter(
+            GridManager.instance.GetGridIndex(startPos.position)));
+
+        goalNode = new Node(GridManager.instance.GetGridCellCenter(
+            GridManager.instance.GetGridIndex(endPos.position)));
+        pathArray = AStar.FindPath(startNode, goalNode);
+    }
+
+    void OnDrawGizmos()
+    {
+        if (pathArray == null)
+        {
+            return;
+        }
+        if (pathArray.Count > 0)
+        {
+            int index = 1;
+            foreach (Node node in pathArray)
+            {
+                if (index < pathArray.Count)
+                {
+                    Node nextNode = (Node)pathArray[index];
+                    Debug.DrawLine(node.position, nextNode.position, Color.green);
+                    index++;
+                }
+            }
+        }
+    }
+
+}
