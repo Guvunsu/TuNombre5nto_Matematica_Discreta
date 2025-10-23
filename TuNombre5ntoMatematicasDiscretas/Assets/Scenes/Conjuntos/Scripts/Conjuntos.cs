@@ -10,11 +10,11 @@ public class Conjuntos : MonoBehaviour
     List<string> U = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
     void Start()
     {
-        SubConjuntos();
+        //SubConjuntos();
         // Conjuntoss();
         //Interseccion();
     }
-    public void SubConjuntos(List<string> A = new List<string>)
+    public void SubConjuntos(List<string> A , List<string> B)
     {
         foreach (var element in A)
         {
@@ -34,19 +34,14 @@ public class Conjuntos : MonoBehaviour
     //{
     //    foreach (var element in )
     //}
-    public void Interseccion(List<string> list1, List<string> list2)
+    List<string> Interseccion(List<string> A, List<string> B)
     {
-        foreach (var element in A)
+        List<string> resultado = new List<string>();
+        foreach (var elemento in A)
         {
-            foreach (var elements in B)
-            {
-
-                if (A.Contains(element) != B.Contains(element))
-                {
-                    Debug.Log("La Interseccion es:" + element);
-
-                }
-            }
+            if (B.Contains(elemento))
+                resultado.Add(elemento);
         }
+        return resultado;
     }
 }
