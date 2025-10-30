@@ -10,9 +10,7 @@ public class Conjuntos : MonoBehaviour
     List<string> U = new List<string> { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j" };
     void Start()
     {
-        //SubConjuntos();
-        // Conjuntoss();
-        //Interseccion();
+
     }
     public void SubConjuntos(List<string> A , List<string> B)
     {
@@ -30,10 +28,6 @@ public class Conjuntos : MonoBehaviour
             Debug.Log(("Imprimo estos elementos de:") + A + B);
         }
     }
-    //public void Conjuntoss()
-    //{
-    //    foreach (var element in )
-    //}
     List<string> Interseccion(List<string> A, List<string> B)
     {
         List<string> resultado = new List<string>();
