@@ -1,12 +1,20 @@
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EjerciciosList : MonoBehaviour
 {
+    List<float> list;
+    char letraFiltro;
     void Start()
     {
-
+        Temperatura(list);
+        //ListaInvitados();
+        //PuntuacionesVideojuego();
+        //InventarioTiendita();
+        //CalificacionesExamenes();
+        //GestionInventarioProductos(letraFiltro);
     }
     void Temperatura(List<float> list)
     {
@@ -54,7 +62,7 @@ public class EjerciciosList : MonoBehaviour
         List<string> productosTiendita = new List<string> { "chela", "gansito", "chesco", "papitas", "cigarros", "chicles" };
         List<string> productosTiendita2 = new List<string> { "cocaina", "marihuana", "fentanilo", "DMT", "LSD", "Extasis" };
         productosTiendita.AddRange(productosTiendita2);
-        Debug.Log("Fueron añadidos ambas listas: " + string.Join(", ", productosTiendita2));
+        Debug.Log("Fueron añadidos ambas listas: ");
 
         if (productosTiendita.Contains("papitas"))
         {
@@ -93,7 +101,7 @@ public class EjerciciosList : MonoBehaviour
         List<int> calificaciones_70a90 = calificaciones.FindAll(nota => nota >= 70 && nota <= 90);
         Debug.Log("Cantidad de calificaciones entre 70 y 90: " + calificaciones_70a90.Count);
     }
-    void GestionInventarioProductos(char letraFiltro)
+    void GestionInventarioProductos(char letraFiltro) // me ayudo chatgpt
     {
         List<string> productos = new List<string>
         {

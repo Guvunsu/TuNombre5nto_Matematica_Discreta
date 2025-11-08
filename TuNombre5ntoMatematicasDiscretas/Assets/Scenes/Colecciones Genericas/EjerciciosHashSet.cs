@@ -6,8 +6,8 @@ public class EjerciciosHashSet : MonoBehaviour
     void Start()
     {
         EstudiantesEnDosCursos();
-        ProductosEnDosSucursales();
-        CancionesEnComun();
+        //ProductosEnDosSucursales();
+        //CancionesEnComun();
     }
 
     void EstudiantesEnDosCursos()
@@ -96,5 +96,6 @@ public class EjerciciosHashSet : MonoBehaviour
         {
             Debug.Log("No hay canciones compartidas entre las dos listas de reproducción.");
         }
+
     }
 }
